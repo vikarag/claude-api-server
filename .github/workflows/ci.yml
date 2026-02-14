@@ -21,9 +21,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run non-AI tests
-        run: python3 test_server.py --skip-ai
+      - name: Start server
+        run: |
+          uvicorn app.main:app --host 127.0.0.1 --port 8020 &
+          for i in $(seq 1 10); do
+            curl -s http://localhost:8020/health > /dev/null 2>&1 && break
+            sleep 1
+          done
         env:
           API_SECRET_TOKEN: test-token-for-ci
           CLAUDE_CLI_PATH: claude
           DEFAULT_MODEL: sonnet
+          ALLOWED_PATHS: .
+
+      - name: Run non-AI tests
+        run: python3 test_server.py --skip-ai --token test-token-for-ci
+        env:
+          API_SECRET_TOKEN: test-token-for-ci
