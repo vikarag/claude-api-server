@@ -71,7 +71,7 @@ Each request runs as an independent Claude CLI invocation. This is intentional:
 
 ```bash
 # Clone and set up
-git clone https://github.com/THIS-USERNAME/claude-api-server.git
+git clone https://github.com/vikarag/claude-api-server.git
 cd claude-api-server
 python3 -m venv venv
 source venv/bin/activate

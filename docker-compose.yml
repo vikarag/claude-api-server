@@ -1,0 +1,17 @@
+services:
+  claude-api:
+    build: .
+    ports:
+      - "127.0.0.1:8020:8020"
+    environment:
+      - API_SECRET_TOKEN=${API_SECRET_TOKEN:-changeme-generate-a-real-token}
+      - CLAUDE_CLI_PATH=${CLAUDE_CLI_PATH:-claude}
+      - DEFAULT_MODEL=${DEFAULT_MODEL:-sonnet}
+      - MAX_CONCURRENT=${MAX_CONCURRENT:-2}
+      - REQUEST_TIMEOUT=${REQUEST_TIMEOUT:-300}
+      - ALLOWED_PATHS=${ALLOWED_PATHS:-.}
+      - ENABLE_CORS=${ENABLE_CORS:-false}
+      - CORS_ORIGINS=${CORS_ORIGINS:-*}
+    volumes:
+      - ${HOME}/.claude:/root/.claude:ro
+    restart: unless-stopped

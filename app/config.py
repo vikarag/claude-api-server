@@ -10,10 +10,16 @@ class Settings(BaseSettings):
     request_timeout: int = 120
     allowed_paths: str = "."
     max_budget_usd: float = 1.0
+    enable_cors: bool = False
+    cors_origins: str = "*"
 
     @property
     def allowed_path_list(self) -> list[Path]:
         return [Path(p.strip()) for p in self.allowed_paths.split(",")]
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        return [o.strip() for o in self.cors_origins.split(",")]
 
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
 
