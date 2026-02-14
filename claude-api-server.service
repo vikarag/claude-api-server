@@ -1,0 +1,21 @@
+[Unit]
+Description=Claude API Proxy Server (FastAPI)
+After=network.target
+
+[Service]
+Type=simple
+User=gslee
+Group=users
+WorkingDirectory=/home/gslee/claude-api-server
+Environment="PATH=/home/gslee/claude-api-server/venv/bin:/home/gslee/.local/bin:/usr/local/bin:/usr/bin:/bin"
+# 중첩 세션 방지: Claude Code 환경변수를 상속하지 않음
+UnsetEnvironment=CLAUDECODE CLAUDE_CODE_ENTRYPOINT
+ExecStart=/home/gslee/claude-api-server/venv/bin/python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8020
+Restart=always
+RestartSec=5
+
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
