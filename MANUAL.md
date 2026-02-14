@@ -217,9 +217,7 @@ Supporting files:
 |------|---------|
 | `requirements.txt` | Python package dependencies |
 | `test_server.py` | Automated test suite for all endpoints |
-| `ARCHITECTURE.md` | Technical architecture document (Korean) |
-| `OPENAI_ENDPOINTS.md` | Detailed OpenAI-compatible endpoint documentation |
-| `REPORT.md` | Project report |
+| `claude-api-server.service` | Example systemd service unit file |
 
 ### The 3 API Flavors
 

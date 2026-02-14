@@ -2,11 +2,11 @@
 """Claude API Server — Test Tool
 
 Usage:
-    python3 test_server.py                    # 전체 테스트
-    python3 test_server.py --skip-ai          # AI 호출 제외 (~2초)
-    python3 test_server.py --only security    # 특정 카테고리만
+    python3 test_server.py                    # Run all tests
+    python3 test_server.py --skip-ai          # Skip AI calls (~2s)
+    python3 test_server.py --only security    # Run specific category
     python3 test_server.py --url http://remote:8020 --token xxx
-    python3 test_server.py --verbose          # 응답 본문 표시
+    python3 test_server.py --verbose          # Show response bodies
 """
 
 import argparse

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from app.config import settings
 
-# Claude CLI 중첩 세션 방지 환경변수 제거
+# Remove env vars that prevent nested Claude Code sessions
 _CLEAN_ENV = {k: v for k, v in os.environ.items()
               if k not in ("CLAUDECODE", "CLAUDE_CODE_ENTRYPOINT")}
 
