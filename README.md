@@ -25,7 +25,7 @@ Any tool that speaks the OpenAI API format (LangChain, n8n, Open WebUI, Continue
 
 ```bash
 # Clone and set up
-git clone https://github.com/annathatta/claude-api-server.git
+git clone https://github.com/vikarag/claude-api-server.git
 cd claude-api-server
 python3 -m venv venv
 source venv/bin/activate
